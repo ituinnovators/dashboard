@@ -1,7 +1,12 @@
 # Ignoring default cake-files
 tmp/*
 config/database.php
-app/tmp/*
+app/tmp/cache/models/*
+app/tmp/cache/persistent/*
+app/tmp/cache/views/*
+app/tmp/logs/*
+app/tmp/sessions/*
+app/tmp/tests/*
 app/config/database.php
 !empty
 nbproject/*
