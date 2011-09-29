@@ -1,0 +1,10 @@
+How to get started (from scrath):
+
+1. git clone the project
+2. create a DB called 'dashboard' (no tables, just the DB)
+3. got to the app dir
+4. run "../cake/console/bake" schema create
+5. select y & y
+6. now you have a DB with all the tables needed
+
+
