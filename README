@@ -3,7 +3,7 @@ How to get started (from scrath):
 1. git clone the project
 2. create a DB called 'dashboard' (no tables, just the DB)
 3. goto app/config/
-4. remove database.php.default to database
+4. remove database.php.default to database.php
 5. change your DB info in database.php
 6. got to the app dir
 7. run "../cake/console/bake" schema create
