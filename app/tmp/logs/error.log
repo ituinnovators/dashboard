@@ -1,4 +1,0 @@
-2011-09-29 21:40:33 Warning: Warning (512): /Applications/XAMPP/xamppfiles/htdocs/ITU/dashboard2/app/tmp/cache/persistent/ is not writable in [/Applications/XAMPP/xamppfiles/htdocs/ITU/dashboard2/cake/libs/cache/file.php, line 278]
-2011-09-29 21:40:33 Warning: Warning (512): /Applications/XAMPP/xamppfiles/htdocs/ITU/dashboard2/app/tmp/cache/models/ is not writable in [/Applications/XAMPP/xamppfiles/htdocs/ITU/dashboard2/cake/libs/cache/file.php, line 278]
-2011-09-29 21:41:00 Warning: Warning (512): /Applications/XAMPP/xamppfiles/htdocs/ITU/dashboard2/app/tmp/cache/persistent/ is not writable in [/Applications/XAMPP/xamppfiles/htdocs/ITU/dashboard2/cake/libs/cache/file.php, line 278]
-2011-09-29 21:41:00 Warning: Warning (512): /Applications/XAMPP/xamppfiles/htdocs/ITU/dashboard2/app/tmp/cache/models/ is not writable in [/Applications/XAMPP/xamppfiles/htdocs/ITU/dashboard2/cake/libs/cache/file.php, line 278]
