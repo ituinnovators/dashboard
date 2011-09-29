@@ -1,5 +1,4 @@
 # Ignoring default cake-files
-tmp/*
 config/database.php
 app/tmp/cache/models/*
 app/tmp/cache/persistent/*
