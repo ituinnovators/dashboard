@@ -8,6 +8,6 @@ How to get started (from scrath):
 6. got to the app dir
 7. run "../cake/console/bake" schema create
 8. select y & y
-9. now you have a DB with all the tables needed
+9. now you have a DB with all the tables needed including a little data
 
 
