@@ -1,2 +1,11 @@
-Hej, vi GitFester!
-## Nothing to see here, move along.
+How to get started (from scrath):
+
+1. git clone the project
+2. create a DB called 'dashboard' (no tables, just the DB)
+3. goto app/config/
+4. remove database.php.default to database.php
+5. change your DB info in database.php
+6. got to the app dir
+7. run "../cake/console/bake" schema create
+8. select y & y
+9. now you have a DB with all the tables needed including a little data
