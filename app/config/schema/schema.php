@@ -15,8 +15,8 @@ class AppSchema extends CakeSchema {
 
         if (isset($event["create"]) && $event['create'] == 'users') {
             $db->execute("INSERT INTO `users` (`id`, `name`, `password`, `email`) VALUES
-                        (1, 'visti', 'admin', 'pvis@itu.dk'),
-                        (2, 's\¿ren', 'admin', 'soren@itu.dk');");
+                        (1, 'admin', 'admin', 'sudo@itu-innovators.dk'),
+                        (2, 'tylerdurden', 'admin', 'turd@itu.dk');");
         } elseif (isset($event["create"]) && $event['create'] == 'widgets') {
             $db->execute("INSERT INTO `widgets` (`id`, `name`, `order`) VALUES
                         (1, 'Calendar', 1),

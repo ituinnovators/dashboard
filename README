@@ -1,9 +1,0 @@
-How to get started (from scratch):
-
-1. git clone the project to your local environment ('git clone git@github.com:ituinnovators/dashboard.git')
-2. create a MySQL DB called 'dashboard' (no tables, just the DB)
-3. copy app/config/database.php.default app/config/database.php
-5. change your DB info in the new database.php
-7. from your project dir, run 'cake/console/bake schema generate', select y & y when asked
-9. now you have a DB with all the tables needed including a little data
-10. kick up your browser and you're baking baby!
