@@ -16,6 +16,14 @@ Requirements:
 itu-dashboard  
 v0.1 BETA
 
+## How to add a new widget
+
+1. goto models/widget.php
+2. create function myWidget($args) (look at existing function)
+3. create an entry in widgets table with the same name (case sesitive)
+4. goto home_controller.php
+5. add line: $this->set('WidgetmyWidget', ClassRegistry::init('Widget')->myWidget(array('session' => $user, 'cookie' => $cookie))); to add it to the dashboard
+
 ## Quick start
 
 1. git clone git@github.com:ituinnovators/dashboard.git
