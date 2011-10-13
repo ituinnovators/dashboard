@@ -13,6 +13,19 @@ class WidgetsController extends AppController {
         }
     }
 
+//    function calendar(){
+//        $user = $this->Auth->user();
+//        $cookie = $this->Cookie->read('itudashboard_key');
+//        if(isset($user)){
+//            return $this->Widget->calendar(array('session' => $user));
+//        }
+//        elseif(isset($cookie)){
+//            return $this->Widget->calendar(array('cookie' => $user));
+//        }else{
+//            return $this->Widget->calendar();
+//        }
+//    }
+
     function index() {
         $this->Widget->recursive = 0;
         $this->set('widgets', $this->paginate());

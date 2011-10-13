@@ -6,6 +6,7 @@ app/tmp/cache/views/*
 app/tmp/logs/*
 app/tmp/sessions/*
 app/tmp/tests/*
+app/tmp/*
 app/config/database.php
 
 # Ignore local dev, project and system files

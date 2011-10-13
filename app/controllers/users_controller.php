@@ -3,10 +3,11 @@
 class UsersController extends AppController {
 
     var $name = 'Users';
+    var $components = array('Password');
 
     function beforeFilter() {
         parent::beforeFilter();
-        $this->Auth->allow('add');
+        $this->Auth->allow('add', 'restore','logout');
     }
 
     function login() {
@@ -14,8 +15,14 @@ class UsersController extends AppController {
     }
 
     function logout() {
+        $this->Cookie->delete('itudashboard_key');
         $this->Session->setFlash('Logout');
         $this->redirect($this->Auth->logout());
+    }
+
+    function restore($key) {
+        $this->Cookie->write('itudashboard_key', $key);
+        $this->redirect(array('controller' => 'users', 'action' => 'index'));
     }
 
     function index() {
@@ -33,8 +40,10 @@ class UsersController extends AppController {
 
     function add() {
         if (!empty($this->data)) {
+            $this->data['User']['key'] = $this->Password->generatePassword(50);
             $this->User->create();
             if ($this->User->save($this->data)) {
+                $this->Cookie->write('itudashboard_key', $this->data['User']['key']);
                 $this->User->UserWidget->Widget->recursive = -1;
                 $widgets = $this->User->UserWidget->Widget->find('all');
                 $user_id = $this->User->id;

@@ -1,2 +1,3 @@
 Hello Innovators<br />
-<?php echo $dummy_text; ?>
+<?php debug($WidgetITUcalendar); ?>
+<?php debug($WidgetScrollbar); ?>

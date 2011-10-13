@@ -8,7 +8,7 @@
  */
 class AppController extends Controller {
 
-    var $components = array('Session', 'Auth');
+    var $components = array('Session', 'Auth', 'Cookie');
 
     function beforeFilter() {
         parent::beforeFilter();
@@ -16,7 +16,17 @@ class AppController extends Controller {
         $this->Auth->loginRedirect = array('controller' => 'pages', 'action' => 'display', 'home');
         $this->Auth->allow('display');
         $this->Auth->authorize = 'controller';
-        $this->set('user', $this->Auth->user());
+
+//        $user = $this->Auth->user();
+//        $cookie = $this->Cookie->read('itudashboard_key');
+//        if (isset($user)){
+//            $this->Session->setFlash("Auth login");
+//            $this->set('user', $user);
+//        }elseif(isset($cookie)){
+//            $this->Session->setFlash("Cookie login");
+//            $this->loadModel('User');
+//            $this->set('user', $this->User->findByKey($cookie));
+//        }
     }
 
     function isAuthorized() {

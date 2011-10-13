@@ -91,7 +91,7 @@
  * Turn off all caching application-wide.
  *
  */
-	Configure::write('Cache.disable', true);
+//	Configure::write('Cache.disable', true);
 
 /**
  * Enable cache checking.
@@ -302,3 +302,10 @@
  *
  */
 	Cache::config('default', array('engine' => 'File'));
+
+        Cache::config('long',
+                array(
+                    'engine' => 'File',
+                    'duration'=> '+1 seconds',
+                    'path' => CACHE,  )
+                );
