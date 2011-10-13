@@ -3,8 +3,6 @@
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id');?></th>
-			<th><?php echo $this->Paginator->sort('name');?></th>
-			<th><?php echo $this->Paginator->sort('password');?></th>
 			<th><?php echo $this->Paginator->sort('email');?></th>
 			<th class="actions"><?php __('Actions');?></th>
 	</tr>
@@ -18,8 +16,6 @@
 	?>
 	<tr<?php echo $class;?>>
 		<td><?php echo $user['User']['id']; ?>&nbsp;</td>
-		<td><?php echo $user['User']['name']; ?>&nbsp;</td>
-		<td><?php echo $user['User']['password']; ?>&nbsp;</td>
 		<td><?php echo $user['User']['email']; ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $user['User']['id'])); ?>
@@ -47,7 +43,7 @@
 	<h3><?php __('Actions'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('New User', true), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('List Widgets', true), array('controller' => 'widgets', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Widget', true), array('controller' => 'widgets', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List User Widgets', true), array('controller' => 'user_widgets', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New User Widget', true), array('controller' => 'user_widgets', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

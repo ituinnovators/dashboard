@@ -26,8 +26,6 @@ class WidgetsController extends AppController {
 				$this->Session->setFlash(__('The widget could not be saved. Please, try again.', true));
 			}
 		}
-		$users = $this->Widget->User->find('list');
-		$this->set(compact('users'));
 	}
 
 	function edit($id = null) {
@@ -46,8 +44,6 @@ class WidgetsController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->Widget->read(null, $id);
 		}
-		$users = $this->Widget->User->find('list');
-		$this->set(compact('users'));
 	}
 
 	function delete($id = null) {

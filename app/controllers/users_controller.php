@@ -26,8 +26,6 @@ class UsersController extends AppController {
 				$this->Session->setFlash(__('The user could not be saved. Please, try again.', true));
 			}
 		}
-		$widgets = $this->User->Widget->find('list');
-		$this->set(compact('widgets'));
 	}
 
 	function edit($id = null) {
@@ -46,8 +44,6 @@ class UsersController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->User->read(null, $id);
 		}
-		$widgets = $this->User->Widget->find('list');
-		$this->set(compact('widgets'));
 	}
 
 	function delete($id = null) {
