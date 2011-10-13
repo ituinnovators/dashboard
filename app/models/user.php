@@ -42,8 +42,6 @@ class User extends AppModel {
                 'rule' => 'isUnique',
                 'message' => 'This email is already used'
             )
-
-
         )
     );
     var $hasMany = array(
@@ -53,7 +51,13 @@ class User extends AppModel {
             'conditions' => '',
             'order' => '',
             'limit' => '',
-            'dependent' => ''
+            'dependent' => true
+        )
+    );
+    var $belongsTo = array(
+        'Group' => array(
+            'className' => 'Group',
+            'foreignKey' => 'group_id'
         )
     );
 
