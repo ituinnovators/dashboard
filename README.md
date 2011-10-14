@@ -16,21 +16,13 @@ Requirements:
 itu-dashboard  
 v0.1 BETA
 
-## How to add a new widget
-
-1. goto models/widget.php
-2. create function myWidget($args) (look at existing function)
-3. create an entry in widgets table with the same name (case sesitive)
-4. goto home_controller.php
-5. add line: $this->set('WidgetmyWidget', ClassRegistry::init('Widget')->myWidget(array('session' => $user, 'cookie' => $cookie))); to add it to the dashboard
-
 ## Quick start
 
 1. git clone git@github.com:ituinnovators/dashboard.git
 2. mysqladmin -u root -p create itu-dashboard
 3. cp app/config/database.php.default app/config/database.php
 4. EDIT AND UPDATE database.php
-5. cake/console/cake schema generate (OR create???)
+5. cake/console/cake schema create -s NUMBER (e.g. 4)
 
 ## Get started from scratch (detailed)
 
@@ -39,7 +31,7 @@ v0.1 BETA
 3. create an empty MySQL DB called 'itu-dashboard' (no tables, just the DB)
 4. copy app/config/database.php.default to app/config/database.php
 5. edit database.php with your own local DB info
-6. from your project dir, run 'cake/console/cake schema create', select y & y when asked
+6. from your project dir, run 'cake/console/cake schema create -s NUMBER' (replace with number of the newest schema_NUMBER.php file, e.g. 4), select y & y when asked
 7. now you have a DB with all the tables needed including a little data
 8. kick up your browser and you're baking baby!
 
@@ -52,3 +44,11 @@ add this to database for MAMP (OSX) to work:
 default login:  
 user: admin  
 pass: admin
+
+## How to add a new widget
+
+1. goto models/widget.php
+2. create function myWidget($args) (look at existing function)
+3. create an entry in widgets table with the same name (case sesitive)
+4. goto home_controller.php
+5. add line: $this->set('WidgetmyWidget', ClassRegistry::init('Widget')->myWidget(array('session' => $user, 'cookie' => $cookie))); to add it to the dashboard
