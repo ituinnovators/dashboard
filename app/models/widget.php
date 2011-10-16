@@ -42,7 +42,9 @@ class Widget extends AppModel {
         } elseif (isset($args['cookie'])) {
             $user = $this->UserWidget->User->findByKey($args['cookie']);
             $user_id = $user['User']['id'];
-        }
+        } else {
+					$user_id = 0;
+				}
         return $user_id;
     }
 

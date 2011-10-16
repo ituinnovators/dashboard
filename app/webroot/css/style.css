@@ -1,0 +1,391 @@
+/*
+Author: Vanja Cosic (vcos)
+Description: First fronted demo of ITU Dashboard.
+*/
+body {
+	font: 13px/1.5 'Helvetica Neue', Arial, 'Liberation Sans', FreeSans, sans-serif;
+	background: #f6f6f6;
+	color: #333;
+	font-size: 11px;
+	height: auto;
+	padding-bottom: 20px;
+}
+a {
+	color: #1fa0e2;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+pre,
+code {
+	font-family: 'DejaVu Sans Mono', Monaco, Consolas, monospace;
+}
+
+hr {
+	border: 0 #ccc solid;
+	border-top-width: 1px;
+	clear: both;
+	height: 0;
+}
+/* Headings
+----------------------------------------------------------------------------------------------------*/
+h1 {
+	font-size: 25px;
+}
+h2 {
+	padding-left: 25px;
+	padding-top: 0.3em;
+	padding-bottom: 0.3em;
+	font-size: 23px;	
+}
+h3 {
+	font-size: 21px;
+}
+
+/* Header & content
+----------------------------------------------------------------------------------------------------*/
+#header{
+
+	background: #545454; /* Old browsers */
+	background: -moz-linear-gradient(top, #545454 0%, #0e0e0e 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#545454), color-stop(100%,#0e0e0e)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #545454 0%,#0e0e0e 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #545454 0%,#0e0e0e 100%); /* Opera11.10+ */
+	background: -ms-linear-gradient(top, #545454 0%,#0e0e0e 100%); /* IE10+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#545454', endColorstr='#0e0e0e',GradientType=0 ); /* IE6-9 */
+	background: linear-gradient(top, #545454 0%,#0e0e0e 100%); /* W3C */
+
+	/* background: #1fa0e2; */
+	border-bottom: solid 1px #444;
+}
+
+#content {
+	background: #fff;
+	border: 0 #ccc solid;
+	border-right-width: 1px;
+	border-left-width: 1px;
+	border-bottom-width: 1px;
+}
+#footer{
+	background: #fff;
+	text-align: center;
+	border: 0 #ccc solid;
+	border-right-width: 1px;
+	border-left-width: 1px;
+	border-bottom-width: 1px;
+	padding: 10px 0;
+	color: rgba(0,0,0,0.4)
+}
+/* Navigation styling. Original author: Craig Erskine. Heavily modified by Vanja Cosic.
+----------------------------------------------------------------------------------------------------*/
+.buffer{
+	width: 25em;
+}
+ul#navmenu-h { 
+	line-height: 20px;
+	margin-left: -5px;
+	margin-right: -5px; 
+	list-style: none; 
+	position: relative; 
+	z-index: 100;
+}
+ul#navmenu-h ul {
+ width: 149px; /* Sub Menu Width */
+ margin: 0;
+ list-style: none;
+ display: none;
+ position: absolute;
+ top: 100%;
+ left: 0;
+}
+
+ul#navmenu-h ul ul,ul#navmenu-h ul ul ul { top: 0; left: 100%; }
+
+ul#navmenu-h li { float: left; display: inline; position: relative; }
+ul#navmenu-h ul li { width: 100%; display: block; }
+
+/* Root Menu */
+ul#navmenu-h a {
+ padding-left: 20px;
+ padding-right: 20px;
+ padding-top: 5px;
+ padding-bottom: 5px;
+ float: left;
+ display: block;
+ background: none;
+ color: #e1e1e1;
+ font-size: 1.3em;
+ text-decoration: none;
+ height: 1%;
+}
+ul#navmenu-h .selected a{
+	color: #fff;	
+}
+/* Root Menu Hover Persistence */
+ul#navmenu-h a:hover,ul#navmenu-h li:hover a,ul#navmenu-h li.iehover a {
+	color: #fff;
+}
+
+ul#navmenu-h li.right {
+	float: right;
+}
+
+/* 2nd Menu */
+ul#navmenu-h li:hover li a,ul#navmenu-h li.iehover li a {
+	float: none;
+	background: #000;
+	border-right: 1px solid #545454;
+	border-left: 1px solid #545454;
+	border-top: 1px solid #545454;
+}
+/* 2nd Menu Hover Persistence */
+ul#navmenu-h li:hover li a:hover,ul#navmenu-h li:hover li:hover a,ul#navmenu-h li.iehover li a:hover,ul#navmenu-h li.iehover li.iehover a {
+	background: #545454;
+}
+/* 3rd Menu */
+ul#navmenu-h li:hover li:hover li a,ul#navmenu-h li.iehover li.iehover li a {
+	background: #000;
+}
+/* 3rd Menu Hover Persistence */
+ul#navmenu-h li:hover li:hover li a:hover,ul#navmenu-h li:hover li:hover li:hover a,ul#navmenu-h li.iehover li.iehover li a:hover,ul#navmenu-h li.iehover li.iehover li.iehover a {
+	background: #545454;
+}
+/* 4th Menu */
+ul#navmenu-h li:hover li:hover li:hover li a,ul#navmenu-h li.iehover li.iehover li.iehover li a {
+	background: #000;
+}
+/* 4th Menu Hover */
+ul#navmenu-h li:hover li:hover li:hover li a:hover,ul#navmenu-h li.iehover li.iehover li.iehover li a:hover {
+	background: #545454;
+}
+/* Hover Function - Do Not Move */
+ul#navmenu-h li:hover ul ul,ul#navmenu-h li:hover ul ul ul,ul#navmenu-h li.iehover ul ul,ul#navmenu-h li.iehover ul ul ul { display: none; }
+ul#navmenu-h li:hover ul,ul#navmenu-h ul li:hover ul,ul#navmenu-h ul ul li:hover ul,ul#navmenu-h li.iehover ul,ul#navmenu-h ul li.iehover ul,ul#navmenu-h ul ul li.iehover ul { display: block; }
+
+
+/* Widgets
+----------------------------------------------------------------------------------------------------*/
+.widget {
+	background: #fff;
+	border: 2px solid #7c7b7b;
+	border-radius: 8px;
+	overflow: hidden;
+	padding: 5px 10px;
+	height: 150px;
+	text-align: left;
+}
+.widget-option{
+	float: right;
+	margin-top: 0px;
+	margin-left: 3px;
+}
+div.widgetgrid{
+	padding:2em;
+
+}
+.welcome{
+	display: none;
+	padding-top: 15px;
+	width: 470px;
+	text-align: center;
+}
+.dialog-option{
+	float: right;
+	margin-top: -2px;
+	margin-right: 0px;
+}
+/* jQuery UI Sortable styling
+----------------------------------------------------------------------------------------------------*/
+.column { 
+	width: 230px; 
+	float: left; 
+	padding-bottom: 100px;
+}
+.portlet {
+	margin: 0 1em 1em 0; 
+}
+.portlet-header { 
+	font-weight: bold;
+	font-size: 1.2em;
+	margin: 0.3em; 
+	padding-bottom: 4px; 
+	padding-left: 0.2em; 
+}
+.portlet-content { 
+	padding: 0.4em; 
+}
+.ui-sortable-placeholder { 
+	border: 1px dotted black; 
+	visibility: visible !important; 
+	height: 150px !important; 
+}
+.ui-sortable-placeholder * { 
+	visibility: hidden; 
+}
+
+/* Searchbar styling
+----------------------------------------------------------------------------------------------------*/
+#searcher{
+	float: right;
+	margin-right: 28px;
+	margin-top: -6px;
+}
+input[type=text],
+input[type=password],
+textarea {
+	background: #fafafa;
+	-moz-box-shadow: inset 0 1px 1px rgba(0,0,0,0.1);
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.1);
+	box-shadow: inset 0 1px 1px rgba(0,0,0,0.1);
+	border: 1px solid #ddd;
+	color: #888;
+}
+input[type=text]:focus,
+textarea:focus {
+	color: #373737;
+}
+input#searchfield {
+	background: #fafafa url(../img/search.png) no-repeat 1px 2px;
+	font-size: 12px;
+	height: 22px;
+	line-height: 1em;
+	padding: 0px 8px 0px 20px;
+}
+#branding #searchfield {
+	-webkit-transition-duration: 400ms;
+	-webkit-transition-property: width, background;
+	-webkit-transition-timing-function: ease;
+	-moz-transition-duration: 400ms;
+	-moz-transition-property: width, background;
+	-moz-transition-timing-function: ease;
+	-o-transition-duration: 400ms;
+	-o-transition-property: width, background;
+	-o-transition-timing-function: ease;
+	width: 45px;
+	margin-top: 5px;
+}
+#branding #searchfield:focus {
+	background-color: #f9f9f9;
+	width: 155px;
+}
+#branding #searchsubmit {
+	display: none;
+}
+
+/* Cake Debugging
+----------------------------------------------------------------------------------------------------*/
+
+pre {
+	color: #000;
+	background: #f0f0f0;
+	padding: 1em;
+}
+pre.cake-debug {
+	background: #ffcc00;
+	font-size: 120%;
+	line-height: 140%;
+	margin-top: 1em;
+	overflow: auto;
+	position: relative;
+}
+div.cake-stack-trace {
+	background: #fff;
+	color: #333;
+	margin: 0px;
+	padding: 6px;
+	font-size: 120%;
+	line-height: 140%;
+	overflow: auto;
+	position: relative;
+}
+div.cake-code-dump pre {
+	position: relative;
+	overflow: auto;
+}
+div.cake-stack-trace pre, div.cake-code-dump pre {
+	color: #000;
+	background-color: #F0F0F0;
+	margin: 0px;
+	padding: 1em;
+	overflow: auto;
+}
+div.cake-code-dump pre, div.cake-code-dump pre code {
+	clear: both;
+	font-size: 12px;
+	line-height: 15px;
+	margin: 4px 2px;
+	padding: 4px;
+	overflow: auto;
+}
+div.cake-code-dump span.code-highlight {
+	background-color: #ff0;
+	padding: 4px;
+}
+div.code-coverage-results div.code-line {
+	padding-left:5px;
+	display:block;
+	margin-left:10px;
+}
+div.code-coverage-results div.uncovered span.content {
+	background:#ecc;
+}
+div.code-coverage-results div.covered span.content {
+	background:#cec;
+}
+div.code-coverage-results div.ignored span.content {
+	color:#aaa;
+}
+div.code-coverage-results span.line-num {
+	color:#666;
+	display:block;
+	float:left;
+	width:20px;
+	text-align:right;
+	margin-right:5px;
+}
+div.code-coverage-results span.line-num strong {
+	color:#666;
+}
+div.code-coverage-results div.start {
+	border:1px solid #aaa;
+	border-width:1px 1px 0px 1px;
+	margin-top:30px;
+	padding-top:5px;
+}
+div.code-coverage-results div.end {
+	border:1px solid #aaa;
+	border-width:0px 1px 1px 1px;
+	margin-bottom:30px;
+	padding-bottom:5px;
+}
+div.code-coverage-results div.realstart {
+	margin-top:0px;
+}
+div.code-coverage-results p.note {
+	color:#bbb;
+	padding:5px;
+	margin:5px 0 10px;
+	font-size:10px;
+}
+div.code-coverage-results span.result-bad {
+	color: #a00;
+}
+div.code-coverage-results span.result-ok {
+	color: #fa0;
+}
+div.code-coverage-results span.result-good {
+	color: #0a0;
+}
+.cake-sql-log table {
+	background: #f4f4f4;
+}
+.cake-sql-log td {
+	padding: 4px 8px;
+	text-align: left;
+	font-family: Monaco, Consolas, "Courier New", monospaced;
+}
+.cake-sql-log caption {
+	color:#fff;
+}
