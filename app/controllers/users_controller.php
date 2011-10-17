@@ -7,7 +7,7 @@ class UsersController extends AppController {
 
     function beforeFilter() {
         parent::beforeFilter();
-        $this->Auth->allow('add', 'restore','logout');
+        $this->Auth->allow('add', 'restore', 'logout', 'setWidgetAttribute');
     }
 
     function login() {
@@ -20,9 +20,35 @@ class UsersController extends AppController {
         $this->redirect($this->Auth->logout());
     }
 
+    function setWidgetAttribute($widget_id, $attribute, $value) {
+
+        $this->User->UserWidget->updateAll(
+                array('UserWidget.' .$attribute => $value),
+                array(
+                    'UserWidget.user_id' => $this->user_id,
+                    'UserWidget.widget_id' => $widget_id
+                )
+        );
+
+        $this->Session->setFlash('Removed widget id =' . $widget_id . ' for user id =' . $this->user_id);
+        $this->redirect($this->referer());
+    }
+
     function restore($key) {
-        $this->Cookie->write('itudashboard_key', $key);
-        $this->redirect(array('controller' => 'users', 'action' => 'index'));
+        $this->User->recursive = -1;
+        $k_search = $this->User->findByKey($key);
+        $e_search = $this->User->findByEmail($key);
+        if (!empty($k_search)) {
+            $this->Cookie->write('itudashboard_key', $k_search['User']['key'], false, '+1 year');
+            $this->Session->setFlash('User restored with key =' . $key);
+        } elseif (!empty($e_search)) {
+            $this->Cookie->write('itudashboard_key', $e_search['User']['key'], false, '+1 year');
+            $this->Session->setFlash('User restored with email =' . $key);
+        } else {
+            $this->Session->setFlash('No user with key/email = "' . $key . '"');
+        }
+
+        $this->redirect(array('controller' => 'home', 'action' => 'index'));
     }
 
     function index() {

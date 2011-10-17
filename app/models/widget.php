@@ -36,18 +36,6 @@ class Widget extends AppModel {
         )
     );
 
-    private function getUserId($args) {
-        if (isset($args['session'])) {
-            $user_id = $args['session']['User']['id'];
-        } elseif (isset($args['cookie'])) {
-            $user = $this->UserWidget->User->findByKey($args['cookie']);
-            $user_id = $user['User']['id'];
-        } else {
-					$user_id = 0;
-				}
-        return $user_id;
-    }
-
     private function getCache($user_id, $name) {
         $cache = Cache::read('widget_' . $user_id . '_' . $name, 'long');
         if ($cache !== false) {
@@ -70,6 +58,7 @@ class Widget extends AppModel {
                         'UserWidget.widget_id' => $widget_id
                     )
                 ));
+        ($userwidget['UserWidget']['visible'] == NULL) ? $userwidget['UserWidget']['visible'] = 1 : '';
         return $userwidget;
     }
 
@@ -77,7 +66,7 @@ class Widget extends AppModel {
         $user_id = $this->getUserId($args);
         $cache = $this->getCache($user_id, __FUNCTION__);
 
-        
+
         if ($cache !== false) {
             return $cache;
         }
@@ -115,6 +104,25 @@ class Widget extends AppModel {
         return $data;
     }
 
+    function myschedule($args) {
+        $user_id = $this->getUserId($args);
+        $cache = $this->getCache($user_id, __FUNCTION__);
+        if ($cache !== false) {
+            return $cache;
+        }
+        $userwidget = $this->getAttributes($user_id, __FUNCTION__);
+        // generate data
+
+        $data = array(
+            'title' => 'Mit Skema',
+            'content' => '<div><p><b>Monday</b></p><p>Free drinks</p><p><b>Thuesday</b></p><p>More free drinks</p><p><b>Wednesday</b></p><p>Happy hour</p></div>',
+            'visible' => $userwidget['UserWidget']['visible'],
+        );
+
+        $this->writeCache($user_id, __FUNCTION__, $data);
+
+        return $data;
+    }
 }
 
 ?>

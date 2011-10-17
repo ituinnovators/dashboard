@@ -31,3 +31,5 @@
  * ...and connect the rest of 'Pages' controller's urls.
  */
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
+        Router::connect('/search/*', array('controller' => 'home', 'action' => 'search'));
+        Router::connect('/settings', array('controller' => 'home', 'action' => 'settings'));

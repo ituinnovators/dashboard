@@ -16,6 +16,10 @@ class AppController extends Controller {
         $this->Auth->loginRedirect = array('controller' => 'pages', 'action' => 'display', 'home');
         $this->Auth->allow('display');
         $this->Auth->authorize = 'controller';
+        $this->user = $this->Auth->user();
+        $this->cookie = $this->Cookie->read('itudashboard_key');
+        $this->loadModel('User');
+        $this->user_id = $this->User->getUserId(array('session' => $this->user, 'cookie' => $this->cookie));
 
 //        $user = $this->Auth->user();
 //        $cookie = $this->Cookie->read('itudashboard_key');

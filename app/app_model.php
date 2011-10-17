@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Application model for Cake.
  *
@@ -32,5 +33,17 @@
  * @subpackage    cake.cake.libs.model
  */
 class AppModel extends Model {
+
+    function getUserId($args) {
+        if (isset($args['session'])) {
+            $user_id = $args['session']['User']['id'];
+        } elseif (isset($args['cookie'])) {
+            $user = $this->UserWidget->User->findByKey($args['cookie']);
+            $user_id = $user['User']['id'];
+        } else {
+            $user_id = 0;
+        }
+        return $user_id;
+    }
 
 }
